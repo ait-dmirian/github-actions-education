@@ -31,3 +31,9 @@ jobs:
         run: |
           echo "${{ toJSON(steps) }}"
           echo "${{ join(steps.*.conclusion) }}"
+      - name: Inspect the Github Context
+        id: ghContext
+        run: echo "${{ github }}"
+        # run: echo $JSON # Workaround for https://github.com/actions/runner/issues/1656
+        # env:
+        #   JSON: ${{ toJSON(github) }}
